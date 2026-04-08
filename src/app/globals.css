@@ -1,29 +1,27 @@
 @import "tailwindcss";
 
 @theme {
-  --color-surface: #0a0a0b;
-  --color-surface-raised: #141416;
-  --color-surface-hover: #1c1c1f;
+  --color-surface: #08080a;
+  --color-surface-raised: #131316;
+  --color-surface-hover: #1a1a1e;
   --color-border: #2a2a2e;
   --color-border-subtle: #1e1e22;
   --color-text-primary: #f5f5f4;
   --color-text-secondary: #a1a1aa;
-  --color-text-muted: #71717a;
+  --color-text-muted: #8b8b96;
   --color-accent: #f59e0b;
   --color-accent-soft: #f59e0b1a;
   --color-accent-glow: #f59e0b33;
   --color-success: #22c55e;
   --color-danger: #ef4444;
 
-  --font-display: 'Clash Display', system-ui, sans-serif;
-  --font-body: 'Satoshi', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: var(--font-clash-display), system-ui, sans-serif;
+  --font-body: var(--font-satoshi), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
 }
 
-/* ═══ Base styles — OUTSIDE @layer to guarantee they override Tailwind preflight ═══ */
-* {
-  box-sizing: border-box;
-}
+/* ═══ Base ═══ */
+* { box-sizing: border-box; }
 
 html {
   scroll-behavior: smooth;
@@ -32,7 +30,7 @@ html {
 }
 
 body {
-  background-color: #0a0a0b !important;
+  background-color: #08080a !important;
   color: var(--color-text-primary);
   font-family: var(--font-body);
   overflow-x: hidden;
@@ -50,53 +48,71 @@ body {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.025;
+  opacity: 0.04;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
 }
 
-/* ═══ Dot grid background pattern ═══ */
+/* ═══ Dot grid — visible ═══ */
 .dot-grid {
-  background-image: radial-gradient(circle, rgba(255 255 255 / 0.03) 1px, transparent 1px);
-  background-size: 24px 24px;
+  background-image: radial-gradient(circle, rgba(255 255 255 / 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
-/* ═══ Glow effect for accent elements ═══ */
+/* ═══ Glow effects ═══ */
 .glow-amber {
-  box-shadow: 0 0 40px var(--color-accent-glow), 0 0 80px var(--color-accent-soft);
+  box-shadow:
+    0 0 30px rgba(245, 158, 11, 0.35),
+    0 0 60px rgba(245, 158, 11, 0.15),
+    0 0 120px rgba(245, 158, 11, 0.08);
+}
+
+.glow-amber-subtle {
+  box-shadow: 0 0 40px rgba(245, 158, 11, 0.12), 0 0 80px rgba(245, 158, 11, 0.06);
 }
 
 /* ═══ Gradient text ═══ */
 .gradient-text {
-  background: linear-gradient(135deg, #f59e0b 0%, #f97316 40%, #ef4444 100%);
+  background: linear-gradient(135deg, #fbbf24 0%, #f97316 45%, #ef4444 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-subtle {
-  background: linear-gradient(135deg, #f5f5f4 0%, #a1a1aa 100%);
+  background: linear-gradient(180deg, #f5f5f4 0%, #a1a1aa 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* ═══ Glass card ═══ */
+/* ═══ Glass card — actually visible ═══ */
 .glass-card {
-  background: rgba(20, 20, 22, 0.6);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(24px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.glass-card-hover {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glass-card-hover:hover {
-  background: rgba(28, 28, 31, 0.7);
-  border-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.5),
+    0 0 40px rgba(245, 158, 11, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
 }
 
-/* ═══ Gradient border effect ═══ */
+/* ═══ Gradient border — visible at rest with animated rotation ═══ */
 .gradient-border {
   position: relative;
+  border-radius: 1rem;
 }
 
 .gradient-border::before {
@@ -105,35 +121,81 @@ body {
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.3), rgba(245, 158, 11, 0));
+  background: conic-gradient(
+    from var(--border-angle, 0deg),
+    rgba(245, 158, 11, 0.4),
+    rgba(245, 158, 11, 0.06),
+    rgba(245, 158, 11, 0.0),
+    rgba(245, 158, 11, 0.06),
+    rgba(245, 158, 11, 0.4)
+  );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  opacity: 0.5;
+  transition: opacity 0.4s ease;
+  animation: border-rotate 8s linear infinite;
 }
 
 .gradient-border:hover::before {
   opacity: 1;
 }
 
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes border-rotate {
+  to { --border-angle: 360deg; }
+}
+
+/* ═══ Nav glass ═══ */
+.nav-glass {
+  background: rgba(8, 8, 10, 0.7);
+  backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ═══ Ambient section glow ═══ */
+.section-glow {
+  position: relative;
+}
+
+.section-glow::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 60%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse, rgba(245, 158, 11, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 /* ═══ Animated gradient mesh background ═══ */
 .mesh-gradient {
   background:
-    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(245, 158, 11, 0.04) 0%, transparent 70%),
-    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(245, 158, 11, 0.03) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 60% at 50% 80%, rgba(34, 197, 94, 0.02) 0%, transparent 60%);
+    radial-gradient(ellipse 80% 50% at 20% 40%, rgba(245, 158, 11, 0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 40% at 80% 15%, rgba(249, 115, 22, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 50% at 60% 80%, rgba(34, 197, 94, 0.04) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 10% 90%, rgba(245, 158, 11, 0.05) 0%, transparent 50%);
 }
 
-/* ═══ Section divider ═══ */
+/* ═══ Section divider — gradient line ═══ */
 .divider {
   height: 1px;
   background: linear-gradient(
     90deg,
     transparent 0%,
-    var(--color-border) 30%,
-    var(--color-border) 70%,
+    rgba(245, 158, 11, 0.15) 20%,
+    rgba(245, 158, 11, 0.3) 50%,
+    rgba(245, 158, 11, 0.15) 80%,
     transparent 100%
   );
 }
@@ -146,13 +208,8 @@ body {
   75% { transform: translate(-30px, -10px) scale(1.02); }
 }
 
-.animate-orb {
-  animation: orb-float 20s ease-in-out infinite;
-}
-
-.animate-orb-reverse {
-  animation: orb-float 25s ease-in-out infinite reverse;
-}
+.animate-orb { animation: orb-float 20s ease-in-out infinite; }
+.animate-orb-reverse { animation: orb-float 25s ease-in-out infinite reverse; }
 
 /* ═══ Stat counter ═══ */
 @keyframes count-up {
@@ -160,9 +217,7 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-.animate-count {
-  animation: count-up 0.6s ease-out forwards;
-}
+.animate-count { animation: count-up 0.6s ease-out forwards; }
 
 /* ═══ Breathing animation ═══ */
 @keyframes breathe {
@@ -170,9 +225,7 @@ body {
   50% { transform: scale(1.15); opacity: 0.8; }
 }
 
-.animate-breathe {
-  animation: breathe 4s ease-in-out infinite;
-}
+.animate-breathe { animation: breathe 4s ease-in-out infinite; }
 
 /* ═══ Float animation ═══ */
 @keyframes float {
@@ -180,16 +233,102 @@ body {
   50% { transform: translateY(-6px); }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
+.animate-float { animation: float 6s ease-in-out infinite; }
 
 /* ═══ Pulse glow ═══ */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.15); }
-  50% { box-shadow: 0 0 40px rgba(245, 158, 11, 0.3), 0 0 80px rgba(245, 158, 11, 0.1); }
+  0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.2); }
+  50% { box-shadow: 0 0 50px rgba(245, 158, 11, 0.4), 0 0 100px rgba(245, 158, 11, 0.15); }
 }
 
-.animate-pulse-glow {
-  animation: pulse-glow 3s ease-in-out infinite;
+.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+
+/* ═══ Shimmer — horizontal light sweep ═══ */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(245, 158, 11, 0.08) 25%,
+    rgba(245, 158, 11, 0.15) 50%,
+    rgba(245, 158, 11, 0.08) 75%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 6s ease-in-out infinite;
+}
+
+/* ═══ Bento card size variants ═══ */
+.bento-wide {
+  grid-column: span 2;
+}
+
+@media (max-width: 640px) {
+  .bento-wide {
+    grid-column: span 1;
+  }
+}
+
+/* ═══ Friction connector ═══ */
+.friction-connector {
+  position: relative;
+}
+
+.friction-connector::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -1rem;
+  width: 2rem;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.15), rgba(245, 158, 11, 0.3));
+}
+
+.friction-connector:last-child::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .friction-connector::after {
+    display: none;
+  }
+}
+
+/* ═══ Badge with animated border ═══ */
+.badge-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.15), transparent);
+  animation: shimmer 4s ease-in-out infinite;
+  background-size: 200% 100%;
+}
+
+/* ═══ Hover spotlight (cursor proximity glow on cards) ═══ */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(245, 158, 11, 0.06), transparent 40%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.spotlight-card:hover::after {
+  opacity: 1;
 }

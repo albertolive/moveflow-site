@@ -1,5 +1,38 @@
 import type { Metadata, Viewport } from 'next'
+import localFont from 'next/font/local'
+import { JetBrains_Mono } from 'next/font/google'
 import './globals.css'
+
+const clashDisplay = localFont({
+  src: [
+    { path: './fonts/ClashDisplay-Extralight.woff2', weight: '200' },
+    { path: './fonts/ClashDisplay-Light.woff2', weight: '300' },
+    { path: './fonts/ClashDisplay-Regular.woff2', weight: '400' },
+    { path: './fonts/ClashDisplay-Medium.woff2', weight: '500' },
+    { path: './fonts/ClashDisplay-Semibold.woff2', weight: '600' },
+    { path: './fonts/ClashDisplay-Bold.woff2', weight: '700' },
+  ],
+  variable: '--font-clash-display',
+  display: 'swap',
+})
+
+const satoshi = localFont({
+  src: [
+    { path: './fonts/Satoshi-Light.woff2', weight: '300' },
+    { path: './fonts/Satoshi-Regular.woff2', weight: '400' },
+    { path: './fonts/Satoshi-Medium.woff2', weight: '500' },
+    { path: './fonts/Satoshi-Bold.woff2', weight: '700' },
+  ],
+  variable: '--font-satoshi',
+  display: 'swap',
+})
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'MoveFlow — Beat Your Sedentary Brain',
@@ -28,18 +61,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="grain">
-      <head>
-        <link rel="preconnect" href="https://api.fontshare.com" />
-        <link
-          href="https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=satoshi@300,400,500,700&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap"
-          rel="stylesheet"
-        />
-      </head>
+    <html lang="en" className={`grain ${clashDisplay.variable} ${satoshi.variable} ${jetbrainsMono.variable}`}>
       <body className="mesh-gradient dot-grid bg-surface text-text-primary">
         {children}
       </body>
