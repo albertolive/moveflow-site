@@ -40,7 +40,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="mesh-gradient">
+      <body className="mesh-gradient dot-grid bg-surface text-text-primary">
         {children}
       </body>
     </html>
