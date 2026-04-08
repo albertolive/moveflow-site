@@ -113,86 +113,59 @@ function MenuBarMockup() {
           <div className="flex items-center gap-3 text-[11px] text-white/50">
             <div className="flex items-center gap-1.5 rounded-md bg-teal-500/15 px-2 py-0.5 border border-teal-500/25">
               <Activity className="h-2.5 w-2.5 text-teal-400" />
-              <span className="font-semibold text-teal-300 font-mono text-[10px]">7</span>
-              <div className="flex gap-[3px] ml-0.5">
-                {[1, 2, 3, 4].map(i => (
-                  <div key={i} className="h-[5px] w-[5px] rounded-full bg-teal-400" />
-                ))}
-                <div className="h-[5px] w-[5px] rounded-full bg-white/15" />
-              </div>
+              <span className="font-semibold text-teal-300 font-mono text-[10px]">7d</span>
             </div>
             <span className="font-mono text-[10px]">Mon 9:42</span>
           </div>
         </div>
 
         {/* Dropdown popup */}
-        <div className="absolute right-3 top-full mt-1 w-56 rounded-xl bg-[#161618]/[0.98] backdrop-blur-xl border border-white/[0.1] shadow-2xl shadow-black/70 overflow-hidden">
-          {/* App header */}
+        <div className="absolute right-3 top-full mt-1 w-[260px] rounded-xl bg-[#161618]/[0.98] backdrop-blur-xl border border-white/[0.1] shadow-2xl shadow-black/70 overflow-hidden">
+          {/* Header — matches real app headerSection */}
           <div className="px-4 pt-4 pb-3 border-b border-white/[0.06]">
-            <div className="flex items-center gap-2.5">
-              <div className="h-9 w-9 rounded-lg bg-gradient-to-br from-teal-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-teal-500/25">
-                <Activity className="h-4 w-4 text-white" />
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Flame className="h-4 w-4 text-orange-400" />
+                <span className="text-[13px] font-semibold text-white">7 day streak</span>
               </div>
-              <div>
-                <div className="text-[13px] font-semibold text-white">MoveFlow</div>
-                <div className="text-[10px] text-white/30 font-mono">Warrior Mode</div>
-              </div>
+              <span className="text-[10px] text-white/40 font-medium bg-white/[0.06] px-2 py-0.5 rounded-full">Normal</span>
             </div>
           </div>
 
-          {/* Stats */}
-          <div className="px-4 py-3 space-y-2.5">
+          {/* Status — real app "counting" state */}
+          <div className="px-4 py-3 border-b border-white/[0.06]">
             <div className="flex items-center justify-between">
-              <span className="text-[11px] text-white/35">Streak</span>
-              <span className="text-[11px] font-mono font-semibold text-teal-400">7 days</span>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-[11px] text-white/35">Next break</span>
-              <span className="text-[11px] font-mono text-white/55">23 min</span>
-            </div>
-            <div>
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[11px] text-white/35">Today</span>
-                <span className="text-[11px] font-mono font-medium text-white/55">8 / 10</span>
-              </div>
-              <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: '80%' }}
-                  transition={{ duration: 1.2, delay: 1.2, ease: 'easeOut' }}
-                  className="h-full rounded-full bg-gradient-to-r from-teal-500 to-teal-400"
-                />
-              </div>
-            </div>
-            <div className="flex items-center justify-between">
-              <span className="text-[11px] text-white/35">Snoozes left</span>
-              <div className="flex gap-1">
-                {[1, 2, 3, 4].map(i => (
-                  <div key={i} className="h-[6px] w-[6px] rounded-full bg-teal-400/80" />
-                ))}
-                <div className="h-[6px] w-[6px] rounded-full bg-white/10" />
-              </div>
-            </div>
-          </div>
-
-          {/* Week grid */}
-          <div className="px-4 py-3 border-t border-white/[0.06]">
-            <div className="text-[9px] text-white/20 font-medium mb-2 uppercase tracking-wider">This Week</div>
-            <div className="grid grid-cols-7 gap-1">
-              {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d, i) => (
-                <div key={i} className="text-center">
-                  <div className="text-[8px] text-white/20 mb-1">{d}</div>
-                  <div className={`h-5 w-5 mx-auto rounded-md flex items-center justify-center text-[8px] font-medium ${
-                    i < 3
-                      ? 'bg-teal-500/20 text-teal-400'
-                      : i === 3
-                        ? 'bg-white/[0.06] text-white/40 ring-1 ring-teal-500/40'
-                        : 'bg-white/[0.03] text-white/12'
-                  }`}>
-                    {i < 3 ? '✓' : i === 3 ? '•' : ''}
-                  </div>
+              <div className="space-y-0.5">
+                <div className="flex items-center gap-1.5">
+                  <Timer className="h-3 w-3 text-white/50" />
+                  <span className="text-[11px] text-white/70">Next movement</span>
                 </div>
-              ))}
+                <span className="text-[9px] text-white/25">Peak Focus</span>
+              </div>
+              <motion.span
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ duration: 0.6, delay: 1.0 }}
+                className="text-[22px] font-semibold text-white font-mono tabular-nums"
+              >
+                23:14
+              </motion.span>
+            </div>
+          </div>
+
+          {/* Today progress — matches real app progressSection */}
+          <div className="px-4 py-3">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[11px] text-white/35">Today</span>
+              <span className="text-[11px] font-mono font-medium text-white/55">8/10</span>
+            </div>
+            <div className="h-[6px] rounded-full bg-white/[0.06] overflow-hidden">
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: '80%' }}
+                transition={{ duration: 1.2, delay: 1.2, ease: 'easeOut' }}
+                className="h-full rounded-full bg-gradient-to-r from-green-500 to-green-400"
+              />
             </div>
           </div>
         </div>
