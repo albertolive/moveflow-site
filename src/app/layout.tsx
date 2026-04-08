@@ -35,18 +35,18 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'MoveFlow — Beat Your Sedentary Brain',
-  description: 'The anti-sedentary Mac app that uses 7 behavioral psychology mechanisms to make skipping breaks harder than taking them.',
+  title: 'MoveFlow — Move More, Naturally',
+  description: 'A native macOS app that uses 7 evidence-based approaches to help you build lasting movement habits. Free, open source, and respects your privacy.',
   openGraph: {
-    title: 'MoveFlow — Beat Your Sedentary Brain',
-    description: 'The anti-sedentary Mac app that uses 7 behavioral psychology mechanisms to make skipping breaks harder than taking them.',
+    title: 'MoveFlow — Move More, Naturally',
+    description: 'A native macOS app that uses 7 evidence-based approaches to help you build lasting movement habits. Free, open source, and respects your privacy.',
     type: 'website',
     url: 'https://moveflow.app',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MoveFlow — Beat Your Sedentary Brain',
-    description: '7 psychology tricks that make skipping breaks harder than taking them.',
+    title: 'MoveFlow — Move More, Naturally',
+    description: 'The break reminder that actually works. 7 science-backed approaches to lasting movement habits.',
   },
 }
 
