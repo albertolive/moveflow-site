@@ -110,7 +110,7 @@ function MenuBarMockup() {
             <span>File</span>
             <span>Edit</span>
           </div>
-          <div className="flex items-center gap-3 text-[11px] text-white/50">
+          <div className="flex items-center gap-4 text-[11px] text-white/50">
             <div className="flex items-center gap-1.5 rounded-md bg-teal-500/15 px-2 py-0.5 border border-teal-500/25">
               <Activity className="h-2.5 w-2.5 text-teal-400" />
               <span className="font-semibold text-teal-300 font-mono text-[10px]">7d</span>
@@ -159,12 +159,12 @@ function MenuBarMockup() {
               <span className="text-[11px] text-white/35">Today</span>
               <span className="text-[11px] font-mono font-medium text-white/55">8/10</span>
             </div>
-            <div className="h-[6px] rounded-full bg-white/[0.06] overflow-hidden">
+            <div className="h-2 rounded bg-white/[0.06] overflow-hidden">
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: '80%' }}
                 transition={{ duration: 1.2, delay: 1.2, ease: 'easeOut' }}
-                className="h-full rounded-full bg-gradient-to-r from-green-500 to-green-400"
+                className="h-full rounded bg-gradient-to-r from-green-500 to-green-400"
               />
             </div>
           </div>
