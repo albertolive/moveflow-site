@@ -309,7 +309,7 @@ function MechanismCard({ mechanism, index }: { mechanism: typeof mechanisms[0]; 
             </div>
           </div>
 
-          <h3 className="mb-4 font-display text-[18px] font-semibold tracking-tight text-text-primary">
+          <h3 className="mb-4 font-display text-[18px] font-semibold tracking-normal text-text-primary">
             {mechanism.title}
           </h3>
           <p className="mb-5 text-[14px] leading-[1.7] text-text-secondary">
@@ -593,7 +593,7 @@ export default function Home() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display text-5xl font-bold leading-[1.12] tracking-[-0.03em] md:text-6xl lg:text-[5.5rem]">
+            <h1 className="font-display text-5xl font-bold leading-[1.12] tracking-[-0.015em] md:text-6xl lg:text-[5.5rem]">
               <span className="text-text-primary">Your body</span>
               <br />
               <span className="text-text-primary">was made to </span>
@@ -661,7 +661,7 @@ export default function Home() {
             <div className="mb-4 font-mono text-[12px] font-medium tracking-widest text-accent uppercase">
               The Problem
             </div>
-            <h2 className="font-display text-3xl font-bold leading-tight tracking-[-0.02em] md:text-5xl">
+            <h2 className="font-display text-3xl font-bold leading-tight tracking-[-0.01em] md:text-5xl">
               Break reminders don&apos;t fail because of{' '}
               <span className="text-text-muted line-through decoration-text-muted/40 decoration-2">bad timing</span>.
               <br />
@@ -694,7 +694,7 @@ export default function Home() {
           <div className="mb-4 font-mono text-[12px] font-medium tracking-widest text-accent uppercase">
             Gentle Accountability
           </div>
-          <h2 className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-[-0.02em] md:text-5xl">
+          <h2 className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-[-0.01em] md:text-5xl">
             Each skip becomes{' '}
             <span className="text-accent">more intentional</span>.
           </h2>
@@ -729,7 +729,7 @@ export default function Home() {
           <div className="mb-4 font-mono text-[12px] font-medium tracking-widest text-accent uppercase">
             7 Evidence-Based Approaches
           </div>
-          <h2 className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-[-0.02em] md:text-5xl">
+          <h2 className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-[-0.01em] md:text-5xl">
             Not just reminders.{' '}
             <span className="gradient-text">Science-backed movement habits</span>.
           </h2>
@@ -753,7 +753,7 @@ export default function Home() {
           <div className="mb-4 font-mono text-[12px] font-medium tracking-widest text-accent uppercase">
             How It Works
           </div>
-          <h2 className="font-display text-3xl font-bold tracking-[-0.02em] md:text-5xl">
+          <h2 className="font-display text-3xl font-bold tracking-[-0.01em] md:text-5xl">
             Three steps to <span className="text-accent">lasting habits</span>.
           </h2>
         </div>
@@ -788,7 +788,7 @@ export default function Home() {
           <div className="mb-4 font-mono text-[12px] font-medium tracking-widest text-accent uppercase">
             4-Tier Break System
           </div>
-          <h2 className="font-display text-3xl font-bold tracking-[-0.02em] md:text-5xl">
+          <h2 className="font-display text-3xl font-bold tracking-[-0.01em] md:text-5xl">
             The right break at <span className="text-accent">the right time</span>.
           </h2>
         </div>
@@ -808,7 +808,7 @@ export default function Home() {
             <div className="mb-4 font-mono text-[12px] font-medium tracking-widest text-accent uppercase">
               Privacy First
             </div>
-            <h2 className="font-display text-3xl font-bold tracking-[-0.02em] md:text-5xl">
+            <h2 className="font-display text-3xl font-bold tracking-[-0.01em] md:text-5xl">
               Zero data leaves <span className="text-accent">your machine</span>.
             </h2>
             <p className="mt-4 text-[1.1rem] leading-[1.7] text-text-secondary">
@@ -835,7 +835,7 @@ export default function Home() {
         <div className="absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.1] blur-[140px]" />
 
         <div className="relative">
-          <h2 className="mx-auto max-w-3xl font-display text-4xl font-bold leading-tight tracking-[-0.02em] md:text-6xl">
+          <h2 className="mx-auto max-w-3xl font-display text-4xl font-bold leading-tight tracking-[-0.01em] md:text-6xl">
             Start moving. Keep moving.{' '}
             <span className="gradient-text">Feel the difference</span>.
           </h2>
