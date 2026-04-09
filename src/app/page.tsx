@@ -201,8 +201,8 @@ function FrictionStep({ step, index }: { step: typeof frictionSteps[0]; index: n
       <div className={`h-full rounded-2xl border ${step.border} bg-gradient-to-b ${step.gradient} p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}>
         <div className={`text-2xl font-display font-bold mb-3 ${step.text}`}>{step.skip}</div>
         <div className={`text-[10px] font-mono font-bold ${step.text} mb-1.5 uppercase tracking-widest`}>Level {step.skip}</div>
-        <div className="text-[15px] font-semibold text-text-primary mb-1">{step.label}</div>
-        <div className="text-[12px] text-text-muted leading-snug">{step.desc}</div>
+        <div className="text-[15px] font-semibold text-text-primary mb-2">{step.label}</div>
+        <div className="text-[12px] text-text-muted leading-relaxed">{step.desc}</div>
       </div>
     </motion.div>
   )
@@ -309,7 +309,7 @@ function MechanismCard({ mechanism, index }: { mechanism: typeof mechanisms[0]; 
             </div>
           </div>
 
-          <h3 className="mb-3 font-display text-[18px] font-semibold tracking-tight text-text-primary">
+          <h3 className="mb-4 font-display text-[18px] font-semibold tracking-tight text-text-primary">
             {mechanism.title}
           </h3>
           <p className="mb-5 text-[14px] leading-[1.7] text-text-secondary">
@@ -396,7 +396,7 @@ function BreakTierCard({ tier, index }: {
         <div className={`mb-3 inline-flex rounded-lg border px-3 py-1 text-[12px] font-semibold ${tier.color}`}>
           {tier.name}
         </div>
-        <div className="mb-1 flex items-baseline gap-2">
+        <div className="mb-2.5 flex items-baseline gap-2">
           <span className="font-display text-2xl font-bold text-text-primary">{tier.duration}</span>
           <span className="text-[12px] text-text-muted">{tier.interval}</span>
         </div>
@@ -423,9 +423,9 @@ function PrivacyCard({ item, index }: {
       transition={{ duration: 0.4, delay: index * 0.08 }}
       className="rounded-xl glass-card glass-card-hover p-4"
     >
-      <Icon className="mb-2 h-5 w-5 text-success" />
+      <Icon className="mb-3 h-5 w-5 text-success" />
       <div className="text-[13px] font-semibold text-text-primary">{item.label}</div>
-      <div className="mt-0.5 text-[12px] text-text-muted">{item.desc}</div>
+      <div className="mt-1.5 text-[12px] text-text-muted">{item.desc}</div>
     </motion.div>
   )
 }
@@ -593,7 +593,7 @@ export default function Home() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display text-5xl font-bold leading-[1.04] tracking-[-0.03em] md:text-6xl lg:text-[5.5rem]">
+            <h1 className="font-display text-5xl font-bold leading-[1.12] tracking-[-0.03em] md:text-6xl lg:text-[5.5rem]">
               <span className="text-text-primary">Your body</span>
               <br />
               <span className="text-text-primary">was made to </span>
@@ -814,7 +814,7 @@ export default function Home() {
             <p className="mt-4 text-[1.1rem] leading-[1.7] text-text-secondary">
               MoveFlow runs 100% locally. No accounts, no analytics, no
               telemetry, no cloud. Your break data stays on your Mac in{' '}
-              <code className="rounded-md bg-white/[0.06] px-2 py-1 font-mono text-[13px] text-accent border border-white/[0.08]">
+              <code className="rounded-md bg-white/[0.06] px-2 py-1.5 font-mono text-[13px] text-accent border border-white/[0.08]">
                 ~/Library/Application Support/MoveFlow/
               </code>
             </p>
