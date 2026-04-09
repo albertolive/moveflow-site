@@ -63,9 +63,8 @@ body {
 /* ═══ Glow effects ═══ */
 .glow-accent {
   box-shadow:
-    0 0 30px rgba(45, 212, 191, 0.25),
-    0 0 60px rgba(45, 212, 191, 0.10),
-    0 0 120px rgba(45, 212, 191, 0.05);
+    0 0 20px rgba(45, 212, 191, 0.12),
+    0 0 50px rgba(45, 212, 191, 0.06);
 }
 
 .glow-accent-subtle {
@@ -100,13 +99,12 @@ body {
 }
 
 .glass-card-hover:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
   box-shadow:
     0 4px 24px rgba(0, 0, 0, 0.5),
-    0 0 40px rgba(45, 212, 191, 0.03),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  transform: translateY(-2px);
+  transform: translateY(-1px);
 }
 
 /* ═══ Gradient border — visible at rest with animated rotation ═══ */
@@ -123,23 +121,23 @@ body {
   padding: 1px;
   background: conic-gradient(
     from var(--border-angle, 0deg),
-    rgba(45, 212, 191, 0.3),
-    rgba(45, 212, 191, 0.05),
+    rgba(45, 212, 191, 0.2),
+    rgba(45, 212, 191, 0.04),
     rgba(45, 212, 191, 0.0),
-    rgba(45, 212, 191, 0.05),
-    rgba(45, 212, 191, 0.3)
+    rgba(45, 212, 191, 0.04),
+    rgba(45, 212, 191, 0.2)
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
-  opacity: 0.5;
+  opacity: 0.4;
   transition: opacity 0.4s ease;
-  animation: border-rotate 8s linear infinite;
+  animation: border-rotate 16s linear infinite;
 }
 
 .gradient-border:hover::before {
-  opacity: 1;
+  opacity: 0.6;
 }
 
 @property --border-angle {
@@ -237,11 +235,11 @@ body {
 
 /* ═══ Pulse glow ═══ */
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(45, 212, 191, 0.15); }
-  50% { box-shadow: 0 0 50px rgba(45, 212, 191, 0.3), 0 0 100px rgba(45, 212, 191, 0.10); }
+  0%, 100% { box-shadow: 0 0 15px rgba(45, 212, 191, 0.08); }
+  50% { box-shadow: 0 0 25px rgba(45, 212, 191, 0.14); }
 }
 
-.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
+.animate-pulse-glow { animation: pulse-glow 4s ease-in-out infinite; }
 
 /* ═══ Shimmer — horizontal light sweep ═══ */
 @keyframes shimmer {
@@ -253,13 +251,13 @@ body {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(45, 212, 191, 0.06) 25%,
-    rgba(45, 212, 191, 0.12) 50%,
-    rgba(45, 212, 191, 0.06) 75%,
+    rgba(45, 212, 191, 0.04) 25%,
+    rgba(45, 212, 191, 0.08) 50%,
+    rgba(45, 212, 191, 0.04) 75%,
     transparent 100%
   );
   background-size: 200% 100%;
-  animation: shimmer 6s ease-in-out infinite;
+  animation: shimmer 10s ease-in-out infinite;
 }
 
 /* ═══ Bento card size variants ═══ */
@@ -298,7 +296,7 @@ body {
   }
 }
 
-/* ═══ Badge with animated border ═══ */
+/* ═══ Badge with subtle border ═══ */
 .badge-glow {
   position: relative;
   overflow: hidden;
@@ -308,8 +306,8 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, transparent, rgba(45, 212, 191, 0.12), transparent);
-  animation: shimmer 4s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, rgba(45, 212, 191, 0.06), transparent);
+  animation: shimmer 8s ease-in-out infinite;
   background-size: 200% 100%;
 }
 
@@ -323,7 +321,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(45, 212, 191, 0.05), transparent 40%);
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(45, 212, 191, 0.03), transparent 40%);
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.3s ease;

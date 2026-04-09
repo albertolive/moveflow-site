@@ -182,8 +182,8 @@ const frictionSteps = [
   { skip: 1, label: 'Free pass', desc: 'One-tap dismiss', gradient: 'from-green-500/25 to-green-500/5', border: 'border-green-500/30', text: 'text-green-400' },
   { skip: 2, label: 'Quick reflection', desc: 'Why are you skipping?', gradient: 'from-yellow-500/25 to-yellow-500/5', border: 'border-yellow-500/30', text: 'text-yellow-400' },
   { skip: 3, label: 'Written intent', desc: 'Type your reason', gradient: 'from-orange-500/25 to-orange-500/5', border: 'border-orange-500/30', text: 'text-orange-400' },
-  { skip: 4, label: 'Cooling period', desc: '60-second pause', gradient: 'from-red-500/25 to-red-500/5', border: 'border-red-500/30', text: 'text-red-400' },
-  { skip: 5, label: 'Full commitment', desc: 'Cannot skip', gradient: 'from-red-800/30 to-red-800/5', border: 'border-red-800/35', text: 'text-red-500' },
+  { skip: 4, label: 'Cooling period', desc: '60-second pause', gradient: 'from-orange-500/25 to-orange-500/5', border: 'border-orange-500/30', text: 'text-orange-400' },
+  { skip: 5, label: 'Full commitment', desc: 'Cannot skip', gradient: 'from-rose-500/20 to-rose-500/5', border: 'border-rose-500/25', text: 'text-rose-400' },
 ]
 
 function FrictionStep({ step, index }: { step: typeof frictionSteps[0]; index: number }) {
@@ -198,7 +198,7 @@ function FrictionStep({ step, index }: { step: typeof frictionSteps[0]; index: n
       transition={{ duration: 0.5, delay: index * 0.12 }}
       className="flex-1 relative friction-connector"
     >
-      <div className={`h-full rounded-2xl border ${step.border} bg-gradient-to-b ${step.gradient} p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}>
+      <div className={`h-full rounded-2xl border ${step.border} bg-gradient-to-b ${step.gradient} p-5 text-center transition-all duration-300`}>
         <div className={`text-2xl font-display font-bold mb-3 ${step.text}`}>{step.skip}</div>
         <div className={`text-[10px] font-mono font-bold ${step.text} mb-1.5 uppercase tracking-widest`}>Level {step.skip}</div>
         <div className="text-[15px] font-semibold text-text-primary mb-2">{step.label}</div>
@@ -367,7 +367,7 @@ function StepCard({ step, title, description, delay }: { step: string; title: st
         <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10 border border-accent/25 font-display text-2xl font-bold text-accent">
           {step}
         </div>
-        <div className="absolute inset-0 rounded-2xl bg-accent/20 blur-xl -z-10" />
+        <div className="absolute inset-0 rounded-2xl bg-accent/10 blur-xl -z-10" />
       </div>
       <h3 className="mb-3 font-display text-lg font-semibold text-text-primary">
         {title}
@@ -490,7 +490,7 @@ export default function Home() {
       <nav className="fixed top-0 z-50 w-full nav-glass">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
           <div className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-teal-500 to-cyan-500 shadow-lg shadow-teal-500/20">
+            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-teal-500 to-cyan-500">
               <Activity className="h-3.5 w-3.5 text-white" />
             </div>
             <span className="font-display text-[15px] font-semibold tracking-tight text-text-primary">
@@ -513,7 +513,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <a
               href="https://github.com/albertolive/MoveFlow/releases"
-              className="hidden sm:flex items-center gap-2 rounded-lg bg-accent px-4 py-1.5 text-[13px] font-semibold text-surface transition-all hover:brightness-110 shadow-lg shadow-teal-500/20"
+              className="hidden sm:flex items-center gap-2 rounded-lg bg-accent px-4 py-1.5 text-[13px] font-semibold text-surface transition-all hover:opacity-90"
             >
               <Download className="h-3.5 w-3.5" />
               Download
@@ -572,9 +572,9 @@ export default function Home() {
         className="relative flex min-h-screen items-center px-6 pt-14 overflow-hidden"
       >
         {/* Animated background orbs — visible */}
-        <div className="absolute top-[20%] left-[15%] h-[500px] w-[500px] rounded-full bg-teal-500/[0.08] blur-[140px] animate-orb" />
-        <div className="absolute bottom-[20%] right-[20%] h-[400px] w-[400px] rounded-full bg-cyan-600/[0.06] blur-[120px] animate-orb-reverse" />
-        <div className="absolute top-[60%] left-[60%] h-[300px] w-[300px] rounded-full bg-teal-400/[0.04] blur-[100px] animate-orb" />
+        <div className="absolute top-[20%] left-[15%] h-[500px] w-[500px] rounded-full bg-teal-500/[0.05] blur-[140px] animate-orb" />
+        <div className="absolute bottom-[20%] right-[20%] h-[400px] w-[400px] rounded-full bg-cyan-600/[0.04] blur-[120px] animate-orb-reverse" />
+        <div className="absolute top-[60%] left-[60%] h-[300px] w-[300px] rounded-full bg-teal-400/[0.03] blur-[100px] animate-orb" />
 
         <div className="relative mx-auto max-w-6xl w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left: Text */}
@@ -615,7 +615,7 @@ export default function Home() {
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
               <a
                 href="https://github.com/albertolive/MoveFlow/releases"
-                className="glow-accent group flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 px-8 py-4 font-display text-[15px] font-semibold text-white transition-all hover:brightness-110 hover:scale-[1.02]"
+                className="glow-accent group flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 px-8 py-4 font-display text-[15px] font-semibold text-white transition-all hover:opacity-90 hover:scale-[1.01]"
               >
                 <Download className="h-4 w-4" />
                 Download for Mac
@@ -712,11 +712,11 @@ export default function Home() {
         {/* Gradient progress bar */}
         <div className="relative z-10 mt-6 mx-auto max-w-3xl">
           <div className="h-1 rounded-full bg-white/[0.04] overflow-hidden">
-            <div className="h-full w-full rounded-full bg-gradient-to-r from-green-500/60 via-yellow-500/60 via-orange-500/60 to-red-600/60" />
+            <div className="h-full w-full rounded-full bg-gradient-to-r from-green-500/60 via-yellow-500/60 via-amber-500/60 to-rose-500/60" />
           </div>
           <div className="flex justify-between mt-2 text-[10px] text-text-muted font-mono">
-            <span>Easy</span>
-            <span>Impossible</span>
+            <span>Effortless</span>
+            <span>Fully committed</span>
           </div>
         </div>
       </Section>
@@ -832,7 +832,7 @@ export default function Home() {
 
       {/* FINAL CTA */}
       <Section className="relative mx-auto max-w-6xl px-6 py-36 text-center overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.1] blur-[140px]" />
+        <div className="absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.06] blur-[140px]" />
 
         <div className="relative">
           <h2 className="mx-auto max-w-3xl font-display text-4xl font-bold leading-tight tracking-[-0.01em] md:text-6xl">
@@ -847,7 +847,7 @@ export default function Home() {
           <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href="https://github.com/albertolive/MoveFlow/releases"
-              className="glow-accent group flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 px-8 py-4 font-display text-[16px] font-semibold text-white transition-all hover:brightness-110 hover:scale-[1.02]"
+              className="glow-accent group flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 px-8 py-4 font-display text-[16px] font-semibold text-white transition-all hover:opacity-90 hover:scale-[1.01]"
             >
               <Download className="h-5 w-5" />
               Download for Mac
