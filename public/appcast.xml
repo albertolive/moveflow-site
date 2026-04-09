@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>MoveFlow</title>
+    <link>https://moveflow.app/appcast.xml</link>
+    <description>MoveFlow update feed</description>
+    <language>en</language>
+    <item>
+      <title>Version 1.0</title>
+      <pubDate>Wed, 09 Apr 2026 12:00:00 +0000</pubDate>
+      <sparkle:version>1</sparkle:version>
+      <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+        <h2>MoveFlow 1.0</h2>
+        <ul>
+          <li>Initial release</li>
+          <li>Smart break scheduling with circadian rhythm</li>
+          <li>Progressive skip friction engine</li>
+          <li>Meeting detection and calendar integration</li>
+          <li>Micro-breaks (20-20-20 rule)</li>
+        </ul>
+      ]]></description>
+      <enclosure
+        url="https://moveflow.app/MoveFlow-v1.0-macOS.zip"
+        type="application/octet-stream"
+        sparkle:edSignature="SAuHvNl1TD+iUn7L/TG8BeqUjPO3cVLohuCw5/oJkLQYuyq7WeH/t+53PXpT9a2zkoNGPIczBjvaNr8Nq1NpBA=="
+        length="733105"
+      />
+    </item>
+  </channel>
+</rss>
