@@ -15,7 +15,6 @@ import {
   Monitor,
   Eye,
   Lock,
-  Activity,
   ArrowRight,
   Menu,
   X,
@@ -110,62 +109,87 @@ function MenuBarMockup() {
             <span>File</span>
             <span>Edit</span>
           </div>
-          <div className="flex items-center gap-4 text-[11px] text-white/50">
+          <div className="flex items-center gap-3 text-[11px] text-white/50">
             <div className="flex items-center gap-1.5 rounded-md bg-teal-500/15 px-2 py-0.5 border border-teal-500/25">
-              <Activity className="h-2.5 w-2.5 text-teal-400" />
-              <span className="font-semibold text-teal-300 font-mono text-[10px]">7d</span>
+              <img src="/icon-192.png" alt="" className="h-2.5 w-2.5 rounded-sm" />
+              <span className="font-semibold text-teal-300 font-mono text-[10px]">7🔥</span>
+              <div className="flex gap-[3px] ml-0.5">
+                {[1, 2, 3, 4].map(i => (
+                  <div key={i} className="h-[5px] w-[5px] rounded-full bg-teal-400" />
+                ))}
+                <div className="h-[5px] w-[5px] rounded-full bg-white/15" />
+              </div>
             </div>
             <span className="font-mono text-[10px]">Mon 9:42</span>
           </div>
         </div>
 
         {/* Dropdown popup */}
-        <div className="absolute right-3 top-full mt-1 w-[260px] rounded-xl bg-[#161618]/[0.98] backdrop-blur-xl border border-white/[0.1] shadow-2xl shadow-black/70 overflow-hidden">
-          {/* Header — matches real app headerSection */}
+        <div className="absolute right-3 top-full mt-1 w-56 rounded-xl bg-[#161618]/[0.98] backdrop-blur-xl border border-white/[0.1] shadow-2xl shadow-black/70 overflow-hidden">
+          {/* App header */}
           <div className="px-4 pt-4 pb-3 border-b border-white/[0.06]">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Flame className="h-4 w-4 text-orange-400" />
-                <span className="text-[13px] font-semibold text-white">7 day streak</span>
+            <div className="flex items-center gap-2.5">
+              <img src="/icon-192.png" alt="MoveFlow" className="h-9 w-9 rounded-lg shadow-lg shadow-teal-500/20" />
+              <div>
+                <div className="text-[13px] font-semibold text-white">MoveFlow</div>
+                <div className="text-[10px] text-white/30 font-mono">Warrior Mode</div>
               </div>
-              <span className="text-[10px] text-white/40 font-medium bg-white/[0.06] px-2 py-0.5 rounded-full">Normal</span>
             </div>
           </div>
 
-          {/* Status — real app "counting" state */}
-          <div className="px-4 py-3 border-b border-white/[0.06]">
+          {/* Stats */}
+          <div className="px-4 py-3 space-y-2.5">
             <div className="flex items-center justify-between">
-              <div className="space-y-0.5">
-                <div className="flex items-center gap-1.5">
-                  <Timer className="h-3 w-3 text-white/50" />
-                  <span className="text-[11px] text-white/70">Next movement</span>
+              <span className="text-[11px] text-white/35">Streak</span>
+              <span className="text-[11px] font-mono font-semibold text-amber-400">7 days 🔥</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] text-white/35">Next break</span>
+              <span className="text-[11px] font-mono text-white/55">23 min</span>
+            </div>
+            <div>
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-[11px] text-white/35">Today</span>
+                <span className="text-[11px] font-mono font-medium text-white/55">8 / 10</span>
+              </div>
+              <div className="h-1.5 rounded-full bg-white/[0.06] overflow-hidden">
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: '80%' }}
+                  transition={{ duration: 1.2, delay: 1.2, ease: 'easeOut' }}
+                  className="h-full rounded-full bg-gradient-to-r from-amber-500 to-amber-400"
+                />
+              </div>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-[11px] text-white/35">Snoozes left</span>
+              <div className="flex gap-1">
+                {[1, 2, 3, 4].map(i => (
+                  <div key={i} className="h-[6px] w-[6px] rounded-full bg-amber-400/80" />
+                ))}
+                <div className="h-[6px] w-[6px] rounded-full bg-white/10" />
+              </div>
+            </div>
+          </div>
+
+          {/* Week grid */}
+          <div className="px-4 py-3 border-t border-white/[0.06]">
+            <div className="text-[9px] text-white/20 font-medium mb-2 uppercase tracking-wider">This Week</div>
+            <div className="grid grid-cols-7 gap-1">
+              {['M', 'T', 'W', 'T', 'F', 'S', 'S'].map((d, i) => (
+                <div key={i} className="text-center">
+                  <div className="text-[8px] text-white/20 mb-1">{d}</div>
+                  <div className={`h-5 w-5 mx-auto rounded-md flex items-center justify-center text-[8px] font-medium ${
+                    i < 3
+                      ? 'bg-amber-500/20 text-amber-400'
+                      : i === 3
+                        ? 'bg-white/[0.06] text-white/40 ring-1 ring-amber-500/40'
+                        : 'bg-white/[0.03] text-white/12'
+                  }`}>
+                    {i < 3 ? '✓' : i === 3 ? '•' : ''}
+                  </div>
                 </div>
-                <span className="text-[9px] text-white/25">Peak Focus</span>
-              </div>
-              <motion.span
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 1.0 }}
-                className="text-[22px] font-semibold text-white font-mono tabular-nums"
-              >
-                23:14
-              </motion.span>
-            </div>
-          </div>
-
-          {/* Today progress — matches real app progressSection */}
-          <div className="px-4 py-3">
-            <div className="flex items-center justify-between mb-1.5">
-              <span className="text-[11px] text-white/35">Today</span>
-              <span className="text-[11px] font-mono font-medium text-white/55">8/10</span>
-            </div>
-            <div className="h-2 rounded bg-white/[0.06] overflow-hidden">
-              <motion.div
-                initial={{ width: 0 }}
-                animate={{ width: '80%' }}
-                transition={{ duration: 1.2, delay: 1.2, ease: 'easeOut' }}
-                className="h-full rounded bg-gradient-to-r from-green-500 to-green-400"
-              />
+              ))}
             </div>
           </div>
         </div>
@@ -179,11 +203,11 @@ function MenuBarMockup() {
 
 /* Friction Steps */
 const frictionSteps = [
-  { skip: 1, label: 'Free pass', desc: 'One-tap dismiss', gradient: 'from-green-500/25 to-green-500/5', border: 'border-green-500/30', text: 'text-green-400' },
-  { skip: 2, label: 'Quick reflection', desc: 'Why are you skipping?', gradient: 'from-yellow-500/25 to-yellow-500/5', border: 'border-yellow-500/30', text: 'text-yellow-400' },
-  { skip: 3, label: 'Written intent', desc: 'Type your reason', gradient: 'from-orange-500/25 to-orange-500/5', border: 'border-orange-500/30', text: 'text-orange-400' },
-  { skip: 4, label: 'Cooling period', desc: '60-second pause', gradient: 'from-orange-500/25 to-orange-500/5', border: 'border-orange-500/30', text: 'text-orange-400' },
-  { skip: 5, label: 'Full commitment', desc: 'Cannot skip', gradient: 'from-rose-500/20 to-rose-500/5', border: 'border-rose-500/25', text: 'text-rose-400' },
+  { skip: 1, label: 'Free pass', desc: 'One-tap dismiss', emoji: '✓', gradient: 'from-green-500/25 to-green-500/5', border: 'border-green-500/30', text: 'text-green-400' },
+  { skip: 2, label: 'Quick check', desc: '"Why are you skipping?"', emoji: '?', gradient: 'from-yellow-500/25 to-yellow-500/5', border: 'border-yellow-500/30', text: 'text-yellow-400' },
+  { skip: 3, label: 'Type it out', desc: '"I choose to sit"', emoji: '⌨', gradient: 'from-orange-500/25 to-orange-500/5', border: 'border-orange-500/30', text: 'text-orange-400' },
+  { skip: 4, label: 'Wait 60s', desc: 'Stare at countdown', emoji: '⏱', gradient: 'from-red-500/25 to-red-500/5', border: 'border-red-500/30', text: 'text-red-400' },
+  { skip: 5, label: 'Locked out', desc: 'Cannot skip', emoji: '🔒', gradient: 'from-red-800/30 to-red-800/5', border: 'border-red-800/35', text: 'text-red-500' },
 ]
 
 function FrictionStep({ step, index }: { step: typeof frictionSteps[0]; index: number }) {
@@ -198,11 +222,11 @@ function FrictionStep({ step, index }: { step: typeof frictionSteps[0]; index: n
       transition={{ duration: 0.5, delay: index * 0.12 }}
       className="flex-1 relative friction-connector"
     >
-      <div className={`h-full rounded-2xl border ${step.border} bg-gradient-to-b ${step.gradient} p-5 text-center transition-all duration-300`}>
-        <div className={`text-2xl font-display font-bold mb-3 ${step.text}`}>{step.skip}</div>
-        <div className={`text-[10px] font-mono font-bold ${step.text} mb-1.5 uppercase tracking-widest`}>Level {step.skip}</div>
-        <div className="text-[15px] font-semibold text-text-primary mb-2">{step.label}</div>
-        <div className="text-[12px] text-text-muted leading-relaxed">{step.desc}</div>
+      <div className={`h-full rounded-2xl border ${step.border} bg-gradient-to-b ${step.gradient} p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}>
+        <div className="text-3xl mb-3">{step.emoji}</div>
+        <div className={`text-[10px] font-mono font-bold ${step.text} mb-1.5 uppercase tracking-widest`}>Skip #{step.skip}</div>
+        <div className="text-[15px] font-semibold text-text-primary mb-1">{step.label}</div>
+        <div className="text-[12px] text-text-muted leading-snug">{step.desc}</div>
       </div>
     </motion.div>
   )
@@ -212,18 +236,18 @@ function FrictionStep({ step, index }: { step: typeof frictionSteps[0]; index: n
 const mechanisms = [
   {
     icon: Shield,
-    title: 'Progressive Accountability',
-    description: 'First skip is free. Second asks why. Third invites reflection. Fourth requests patience. Over time, moving becomes the natural choice.',
+    title: 'Progressive Skip Friction',
+    description: 'First skip is free. Second asks why. Third requires typing. Fourth demands a 60-second wait. Your brain learns: skipping costs more than moving.',
     research: 'Thaler & Sunstein — Nudge Theory',
-    tier: '5-tier system',
+    tier: '5-tier escalation',
     wide: true,
-    accent: 'border-l-teal-500',
-    iconColor: 'text-teal-500 bg-teal-500/10 border-teal-500/20',
+    accent: 'border-l-amber-500',
+    iconColor: 'text-amber-500 bg-amber-500/10 border-amber-500/20',
   },
   {
     icon: Flame,
-    title: 'Streak Motivation',
-    description: 'We naturally protect what we have built. MoveFlow tracks your movement streak, making consistency feel rewarding and gaps feel meaningful.',
+    title: 'Streak Loss Aversion',
+    description: 'Humans fear loss 2× more than they value gains. MoveFlow shows your active streak and makes breaking it feel viscerally painful.',
     research: 'Kahneman & Tversky — Prospect Theory',
     tier: 'Daily streaks',
     wide: true,
@@ -233,7 +257,7 @@ const mechanisms = [
   {
     icon: Sun,
     title: 'Morning Precommitment',
-    description: "Choose your commitment level before the day wears you down. Gentle, Normal, or Warrior — a promise from your rested self to your busy self.",
+    description: "Choose your commitment level before willpower depletes. Gentle, Normal, or Warrior mode — a contract with your future self.",
     research: 'Gollwitzer — Implementation Intentions',
     tier: '3 modes',
     wide: false,
@@ -243,7 +267,7 @@ const mechanisms = [
   {
     icon: Timer,
     title: 'Circadian Awareness',
-    description: "Gentler nudges in the morning. Firmer reminders after lunch when energy dips. Adapts to your natural rhythm throughout the day.",
+    description: "Gentler nudges in the morning. Aggressive reminders post-lunch when your body crashes. Adapts to your biological rhythm.",
     research: 'Circadian rhythm research',
     tier: '5 daily periods',
     wide: false,
@@ -263,7 +287,7 @@ const mechanisms = [
   {
     icon: Battery,
     title: 'Snooze Budget',
-    description: 'Five postponements per day. Visual indicators show your remaining flexibility. Earn one back by completing a break. Limited resources create mindfulness.',
+    description: 'Five snoozes per day. Visual dots in menu bar drain as you use them. Regenerate one by completing a break. Scarcity creates value.',
     research: 'Behavioral economics — scarcity',
     tier: '5 daily budget',
     wide: false,
@@ -273,9 +297,9 @@ const mechanisms = [
   {
     icon: Brain,
     title: 'Ulysses Contract',
-    description: "Named after Odysseus, who chose his constraints wisely. Warrior mode locks your chosen level for the day — because your best decisions come before the day wears you down.",
+    description: "Named after Odysseus who tied himself to the mast. Warrior mode locks in your commitment — you can't downgrade mid-day.",
     research: 'Elster — Ulysses and the Sirens',
-    tier: 'Daily commitment',
+    tier: 'Binding lock',
     wide: true,
     accent: 'border-l-red-400',
     iconColor: 'text-red-400 bg-red-400/10 border-red-400/20',
@@ -309,7 +333,7 @@ function MechanismCard({ mechanism, index }: { mechanism: typeof mechanisms[0]; 
             </div>
           </div>
 
-          <h3 className="mb-4 font-display text-[18px] font-semibold tracking-normal text-text-primary">
+          <h3 className="mb-3 font-display text-[18px] font-semibold tracking-tight text-text-primary">
             {mechanism.title}
           </h3>
           <p className="mb-5 text-[14px] leading-[1.7] text-text-secondary">
@@ -367,7 +391,7 @@ function StepCard({ step, title, description, delay }: { step: string; title: st
         <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10 border border-accent/25 font-display text-2xl font-bold text-accent">
           {step}
         </div>
-        <div className="absolute inset-0 rounded-2xl bg-accent/10 blur-xl -z-10" />
+        <div className="absolute inset-0 rounded-2xl bg-accent/20 blur-xl -z-10" />
       </div>
       <h3 className="mb-3 font-display text-lg font-semibold text-text-primary">
         {title}
@@ -396,7 +420,7 @@ function BreakTierCard({ tier, index }: {
         <div className={`mb-3 inline-flex rounded-lg border px-3 py-1 text-[12px] font-semibold ${tier.color}`}>
           {tier.name}
         </div>
-        <div className="mb-2.5 flex items-baseline gap-2">
+        <div className="mb-1 flex items-baseline gap-2">
           <span className="font-display text-2xl font-bold text-text-primary">{tier.duration}</span>
           <span className="text-[12px] text-text-muted">{tier.interval}</span>
         </div>
@@ -423,9 +447,9 @@ function PrivacyCard({ item, index }: {
       transition={{ duration: 0.4, delay: index * 0.08 }}
       className="rounded-xl glass-card glass-card-hover p-4"
     >
-      <Icon className="mb-3 h-5 w-5 text-success" />
+      <Icon className="mb-2 h-5 w-5 text-success" />
       <div className="text-[13px] font-semibold text-text-primary">{item.label}</div>
-      <div className="mt-1.5 text-[12px] text-text-muted">{item.desc}</div>
+      <div className="mt-0.5 text-[12px] text-text-muted">{item.desc}</div>
     </motion.div>
   )
 }
@@ -443,7 +467,7 @@ export default function Home() {
   const breakTiers = [
     { name: 'Micro', interval: 'Every 20 min', duration: '20s', description: 'Eye rest — the 20-20-20 rule. Look 20 feet away for 20 seconds.', color: 'bg-blue-500/15 text-blue-400 border-blue-500/25' },
     { name: 'Movement', interval: 'Every 45 min', duration: '2 min', description: 'Stand, stretch, walk. Guided exercises tailored to desk workers.', color: 'bg-green-500/15 text-green-400 border-green-500/25' },
-    { name: 'Exercise Snack', interval: 'Every 90 min', duration: '5 min', description: 'Bodyweight exercises: squats, push-ups, lunges. Elevate heart rate.', color: 'bg-yellow-500/15 text-yellow-400 border-yellow-500/25' },
+    { name: 'Exercise Snack', interval: 'Every 90 min', duration: '5 min', description: 'Bodyweight exercises: squats, push-ups, lunges. Elevate heart rate.', color: 'bg-amber-500/15 text-amber-400 border-amber-500/25' },
     { name: 'Extended', interval: 'Every 3 hours', duration: '10 min', description: 'Full movement session. Walk outside, stretch routine, active recovery.', color: 'bg-purple-500/15 text-purple-400 border-purple-500/25' },
   ]
 
@@ -490,9 +514,7 @@ export default function Home() {
       <nav className="fixed top-0 z-50 w-full nav-glass">
         <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-6">
           <div className="flex items-center gap-2">
-            <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-gradient-to-br from-teal-500 to-cyan-500">
-              <Activity className="h-3.5 w-3.5 text-white" />
-            </div>
+            <img src="/icon-192.png" alt="MoveFlow" className="h-7 w-7 rounded-lg shadow-lg shadow-teal-500/20" />
             <span className="font-display text-[15px] font-semibold tracking-tight text-text-primary">
               MoveFlow
             </span>
@@ -513,7 +535,7 @@ export default function Home() {
           <div className="flex items-center gap-3">
             <a
               href="https://github.com/albertolive/MoveFlow/releases"
-              className="hidden sm:flex items-center gap-2 rounded-lg bg-accent px-4 py-1.5 text-[13px] font-semibold text-surface transition-all hover:opacity-90"
+              className="hidden sm:flex items-center gap-2 rounded-lg bg-accent px-4 py-1.5 text-[13px] font-semibold text-surface transition-all hover:brightness-110 shadow-lg shadow-amber-500/25"
             >
               <Download className="h-3.5 w-3.5" />
               Download
@@ -548,7 +570,7 @@ export default function Home() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`rounded-lg px-4 py-2.5 text-[14px] transition-colors ${activeSection === id ? 'bg-accent/10 text-accent font-medium' : 'text-text-secondary hover:text-text-primary'}`}
                   >
-                    {id === 'friction' ? 'Accountability' : id === 'mechanisms' ? 'Approaches' : id.charAt(0).toUpperCase() + id.slice(1)}
+                    {id === 'friction' ? 'Skip Friction' : id.charAt(0).toUpperCase() + id.slice(1)}
                   </a>
                 ))}
                 <a
@@ -572,9 +594,9 @@ export default function Home() {
         className="relative flex min-h-screen items-center px-6 pt-14 overflow-hidden"
       >
         {/* Animated background orbs — visible */}
-        <div className="absolute top-[20%] left-[15%] h-[500px] w-[500px] rounded-full bg-teal-500/[0.05] blur-[140px] animate-orb" />
-        <div className="absolute bottom-[20%] right-[20%] h-[400px] w-[400px] rounded-full bg-cyan-600/[0.04] blur-[120px] animate-orb-reverse" />
-        <div className="absolute top-[60%] left-[60%] h-[300px] w-[300px] rounded-full bg-teal-400/[0.03] blur-[100px] animate-orb" />
+        <div className="absolute top-[20%] left-[15%] h-[500px] w-[500px] rounded-full bg-amber-500/[0.12] blur-[140px] animate-orb" />
+        <div className="absolute bottom-[20%] right-[20%] h-[400px] w-[400px] rounded-full bg-orange-600/[0.08] blur-[120px] animate-orb-reverse" />
+        <div className="absolute top-[60%] left-[60%] h-[300px] w-[300px] rounded-full bg-amber-400/[0.06] blur-[100px] animate-orb" />
 
         <div className="relative mx-auto max-w-6xl w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Left: Text */}
@@ -593,29 +615,29 @@ export default function Home() {
             </div>
 
             {/* Headline */}
-            <h1 className="font-display text-5xl font-bold leading-[1.12] tracking-[-0.015em] md:text-6xl lg:text-[5.5rem]">
-              <span className="text-text-primary">Your body</span>
+            <h1 className="font-display text-5xl font-bold leading-[1.04] tracking-[-0.03em] md:text-6xl lg:text-[5.5rem]">
+              <span className="text-text-primary">Your brain</span>
               <br />
-              <span className="text-text-primary">was made to </span>
-              <span className="text-accent">move</span>
+              <span className="text-text-primary">wants to </span>
+              <span className="text-danger">skip</span>
               <span className="text-text-primary">.</span>
               <br />
-              <span className="gradient-text">Let it.</span>
+              <span className="gradient-text">Make it earn it.</span>
             </h1>
 
             {/* Subheadline */}
             <p className="mt-8 max-w-lg text-[1.15rem] leading-[1.7] text-text-secondary lg:text-[1.3rem]">
-              Break reminders have a{' '}
-              <span className="font-semibold text-text-primary">90% skip rate</span>.
-              MoveFlow uses 7 evidence-based approaches to make movement{' '}
-              <span className="font-semibold text-accent">the path of least resistance</span>.
+              Every break reminder has a{' '}
+              <span className="font-semibold text-danger">90% skip rate</span>.
+              MoveFlow uses 7 behavioral psychology mechanisms to make skipping{' '}
+              <span className="font-semibold text-text-primary">harder than moving</span>.
             </p>
 
             {/* CTA */}
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
               <a
                 href="https://github.com/albertolive/MoveFlow/releases"
-                className="glow-accent group flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 px-8 py-4 font-display text-[15px] font-semibold text-white transition-all hover:opacity-90 hover:scale-[1.01]"
+                className="glow-amber group flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-8 py-4 font-display text-[15px] font-semibold text-white transition-all hover:brightness-110 hover:scale-[1.02]"
               >
                 <Download className="h-4 w-4" />
                 Download for Mac
@@ -661,21 +683,22 @@ export default function Home() {
             <div className="mb-4 font-mono text-[12px] font-medium tracking-widest text-accent uppercase">
               The Problem
             </div>
-            <h2 className="font-display text-3xl font-bold leading-tight tracking-[-0.01em] md:text-5xl">
-              Break reminders don&apos;t fail because of{' '}
-              <span className="text-text-muted line-through decoration-text-muted/40 decoration-2">bad timing</span>.
+            <h2 className="font-display text-3xl font-bold leading-tight tracking-[-0.02em] md:text-5xl">
+              Break timers don&apos;t fail because of{' '}
+              <span className="text-text-muted line-through decoration-danger/60 decoration-2">bad timing</span>.
               <br />
-              They fail because they ignore{' '}
-              <span className="gradient-text">how we decide</span>.
+              They fail because of{' '}
+              <span className="gradient-text">your brain</span>.
             </h2>
             <p className="mt-6 text-[1.1rem] leading-[1.7] text-text-secondary">
-              Your present-moment self naturally prioritizes comfort over long-term health.
-              A simple &quot;skip&quot; button is a gift to the part of your mind that
-              optimizes for right now — not for your future self.
+              Your present-moment self always prioritizes comfort over health.
+              A simple &quot;skip&quot; button is a gift to the part of your brain that
+              optimizes for right now — not for your 80-year-old self.
             </p>
             <p className="mt-4 text-[1rem] leading-[1.7] text-text-muted">
-              Stretchly, Time Out, and every other break app treat this as a
-              notification problem. It&apos;s a behavioral design problem.
+              Stretchly, Time Out, and every other break app give you a
+              frictionless exit. That&apos;s not a design flaw — it&apos;s a
+              psychology failure.
             </p>
           </div>
 
@@ -692,14 +715,14 @@ export default function Home() {
       <Section id="friction" className="relative section-glow mx-auto max-w-6xl px-6 py-32">
         <div className="relative z-10 mb-14 text-center">
           <div className="mb-4 font-mono text-[12px] font-medium tracking-widest text-accent uppercase">
-            Gentle Accountability
+            Core Innovation
           </div>
-          <h2 className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-[-0.01em] md:text-5xl">
-            Each skip becomes{' '}
-            <span className="text-accent">more intentional</span>.
+          <h2 className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-[-0.02em] md:text-5xl">
+            Each skip costs{' '}
+            <span className="text-accent">progressively more</span>.
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-[15px] text-text-secondary leading-relaxed">
-            Five levels of mindful resistance. From effortless to fully committed.
+            Five tiers of escalating friction. From effortless to impossible.
           </p>
         </div>
 
@@ -712,11 +735,11 @@ export default function Home() {
         {/* Gradient progress bar */}
         <div className="relative z-10 mt-6 mx-auto max-w-3xl">
           <div className="h-1 rounded-full bg-white/[0.04] overflow-hidden">
-            <div className="h-full w-full rounded-full bg-gradient-to-r from-green-500/60 via-yellow-500/60 via-amber-500/60 to-rose-500/60" />
+            <div className="h-full w-full rounded-full bg-gradient-to-r from-green-500/60 via-yellow-500/60 via-orange-500/60 to-red-600/60" />
           </div>
           <div className="flex justify-between mt-2 text-[10px] text-text-muted font-mono">
-            <span>Effortless</span>
-            <span>Fully committed</span>
+            <span>Easy</span>
+            <span>Impossible</span>
           </div>
         </div>
       </Section>
@@ -727,15 +750,15 @@ export default function Home() {
       <Section id="mechanisms" className="mx-auto max-w-6xl px-6 py-32">
         <div className="mb-14 text-center">
           <div className="mb-4 font-mono text-[12px] font-medium tracking-widest text-accent uppercase">
-            7 Evidence-Based Approaches
+            7 Psychology Mechanisms
           </div>
-          <h2 className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-[-0.01em] md:text-5xl">
-            Not just reminders.{' '}
-            <span className="gradient-text">Science-backed movement habits</span>.
+          <h2 className="mx-auto max-w-3xl font-display text-3xl font-bold leading-tight tracking-[-0.02em] md:text-5xl">
+            Not a timer.{' '}
+            <span className="gradient-text">A behavioral intervention engine</span>.
           </h2>
           <p className="mx-auto mt-5 max-w-lg text-[15px] text-text-secondary leading-relaxed">
-            Each approach is grounded in peer-reviewed behavioral science.
-            Together, they make movement the natural choice.
+            Each mechanism is grounded in peer-reviewed behavioral science.
+            Together, they make skipping cost more than moving.
           </p>
         </div>
 
@@ -753,28 +776,28 @@ export default function Home() {
           <div className="mb-4 font-mono text-[12px] font-medium tracking-widest text-accent uppercase">
             How It Works
           </div>
-          <h2 className="font-display text-3xl font-bold tracking-[-0.01em] md:text-5xl">
-            Three steps to <span className="text-accent">lasting habits</span>.
+          <h2 className="font-display text-3xl font-bold tracking-[-0.02em] md:text-5xl">
+            Three steps. <span className="text-accent">Zero willpower</span>.
           </h2>
         </div>
 
         <div className="grid gap-12 md:grid-cols-3 md:gap-8">
           <StepCard
             step="1"
-            title="Install & choose your level"
-            description="Download, drag to Applications. Pick your commitment level: Gentle, Normal, or Warrior. A promise from your rested self to your busy self."
+            title="Install & choose your mode"
+            description="Download, drag to Applications. Pick your commitment level: Gentle, Normal, or Warrior. This is your Ulysses Contract."
             delay={0}
           />
           <StepCard
             step="2"
-            title="Work. MoveFlow adapts."
-            description="Sits quietly in your menu bar. Detects meetings, tracks idle time, adapts to your natural rhythm. You forget it's there."
+            title="Work. MoveFlow watches."
+            description="Sits silently in your menu bar. Detects meetings, tracks idle time, adjusts to your circadian rhythm. You forget it's there."
             delay={0.15}
           />
           <StepCard
             step="3"
-            title="Move with gentle guidance"
-            description="A full-screen overlay with guided movement. Want to skip? Each level asks for a bit more intention, helping you build consistency."
+            title="Move, or face the friction"
+            description="Full-screen overlay with a guided exercise. Want to skip? The progression engine makes each skip cost more than the last."
             delay={0.3}
           />
         </div>
@@ -788,7 +811,7 @@ export default function Home() {
           <div className="mb-4 font-mono text-[12px] font-medium tracking-widest text-accent uppercase">
             4-Tier Break System
           </div>
-          <h2 className="font-display text-3xl font-bold tracking-[-0.01em] md:text-5xl">
+          <h2 className="font-display text-3xl font-bold tracking-[-0.02em] md:text-5xl">
             The right break at <span className="text-accent">the right time</span>.
           </h2>
         </div>
@@ -808,13 +831,13 @@ export default function Home() {
             <div className="mb-4 font-mono text-[12px] font-medium tracking-widest text-accent uppercase">
               Privacy First
             </div>
-            <h2 className="font-display text-3xl font-bold tracking-[-0.01em] md:text-5xl">
+            <h2 className="font-display text-3xl font-bold tracking-[-0.02em] md:text-5xl">
               Zero data leaves <span className="text-accent">your machine</span>.
             </h2>
             <p className="mt-4 text-[1.1rem] leading-[1.7] text-text-secondary">
               MoveFlow runs 100% locally. No accounts, no analytics, no
               telemetry, no cloud. Your break data stays on your Mac in{' '}
-              <code className="rounded-md bg-white/[0.06] px-2 py-1.5 font-mono text-[13px] text-accent border border-white/[0.08]">
+              <code className="rounded-md bg-white/[0.06] px-2 py-1 font-mono text-[13px] text-accent border border-white/[0.08]">
                 ~/Library/Application Support/MoveFlow/
               </code>
             </p>
@@ -832,22 +855,22 @@ export default function Home() {
 
       {/* FINAL CTA */}
       <Section className="relative mx-auto max-w-6xl px-6 py-36 text-center overflow-hidden">
-        <div className="absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.06] blur-[140px]" />
+        <div className="absolute top-1/2 left-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/[0.1] blur-[140px]" />
 
         <div className="relative">
-          <h2 className="mx-auto max-w-3xl font-display text-4xl font-bold leading-tight tracking-[-0.01em] md:text-6xl">
-            Start moving. Keep moving.{' '}
-            <span className="gradient-text">Feel the difference</span>.
+          <h2 className="mx-auto max-w-3xl font-display text-4xl font-bold leading-tight tracking-[-0.02em] md:text-6xl">
+            Stop negotiating with your{' '}
+            <span className="gradient-text">sedentary brain</span>.
           </h2>
           <p className="mx-auto mt-6 max-w-md text-[1.1rem] text-text-secondary leading-[1.7]">
             MoveFlow is free, open source, and respects your privacy.
-            The only thing it asks is that you move.
+            The only thing it fights is your urge to sit.
           </p>
 
           <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href="https://github.com/albertolive/MoveFlow/releases"
-              className="glow-accent group flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-teal-500 to-cyan-500 px-8 py-4 font-display text-[16px] font-semibold text-white transition-all hover:opacity-90 hover:scale-[1.01]"
+              className="glow-amber group flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-8 py-4 font-display text-[16px] font-semibold text-white transition-all hover:brightness-110 hover:scale-[1.02]"
             >
               <Download className="h-5 w-5" />
               Download for Mac
@@ -870,13 +893,11 @@ export default function Home() {
           <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
             <div>
               <div className="flex items-center gap-2 mb-3">
-                <div className="flex h-6 w-6 items-center justify-center rounded-md bg-gradient-to-br from-teal-500 to-cyan-500">
-                  <Activity className="h-3 w-3 text-white" />
-                </div>
+                <img src="/icon-192.png" alt="MoveFlow" className="h-6 w-6 rounded-md" />
                 <span className="font-display text-[13px] font-semibold text-text-primary">MoveFlow</span>
               </div>
               <p className="text-[12px] text-text-muted max-w-xs leading-relaxed">
-                The mindful movement companion for your Mac.
+                The anti-sedentary Mac app that makes skipping harder than moving.
               </p>
             </div>
 
@@ -884,8 +905,8 @@ export default function Home() {
               <div className="flex flex-col gap-2.5">
                 <span className="font-semibold text-text-secondary uppercase tracking-wider text-[10px]">Product</span>
                 <a href="#problem" className="text-text-muted transition-colors hover:text-text-secondary">Problem</a>
-                <a href="#friction" className="text-text-muted transition-colors hover:text-text-secondary">Accountability</a>
-                <a href="#mechanisms" className="text-text-muted transition-colors hover:text-text-secondary">Approaches</a>
+                <a href="#friction" className="text-text-muted transition-colors hover:text-text-secondary">Skip Friction</a>
+                <a href="#mechanisms" className="text-text-muted transition-colors hover:text-text-secondary">Mechanisms</a>
                 <a href="#privacy" className="text-text-muted transition-colors hover:text-text-secondary">Privacy</a>
               </div>
               <div className="flex flex-col gap-2.5">
