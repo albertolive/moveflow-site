@@ -35,18 +35,28 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'MoveFlow — Move More, Naturally',
-  description: 'A native macOS app that uses 7 evidence-based approaches to help you build lasting movement habits. Free, open source, and respects your privacy.',
+  title: 'MoveFlow — Beat Your Sedentary Brain',
+  description: 'The anti-sedentary Mac app that uses 7 behavioral psychology mechanisms to make skipping breaks harder than taking them.',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '48x48' },
+      { url: '/icon-192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/icon-512.png', sizes: '512x512', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
+  },
   openGraph: {
-    title: 'MoveFlow — Move More, Naturally',
-    description: 'A native macOS app that uses 7 evidence-based approaches to help you build lasting movement habits. Free, open source, and respects your privacy.',
+    title: 'MoveFlow — Beat Your Sedentary Brain',
+    description: 'The anti-sedentary Mac app that uses 7 behavioral psychology mechanisms to make skipping breaks harder than taking them.',
     type: 'website',
     url: 'https://moveflow.app',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'MoveFlow — Move More, Naturally',
-    description: 'The break reminder that actually works. 7 science-backed approaches to lasting movement habits.',
+    title: 'MoveFlow — Beat Your Sedentary Brain',
+    description: '7 psychology tricks that make skipping breaks harder than taking them.',
+    images: ['/og-image.png'],
   },
 }
 
