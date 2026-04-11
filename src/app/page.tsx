@@ -15,6 +15,10 @@ import {
   Monitor,
   Eye,
   Lock,
+  Check,
+  CircleHelp,
+  Keyboard,
+  Clock,
   ArrowRight,
   Menu,
   X,
@@ -102,14 +106,14 @@ function MenuBarMockup() {
 
       <div className="relative">
         {/* macOS Menu Bar */}
-        <div className="rounded-t-xl bg-[#1c1c1f]/95 backdrop-blur-xl border border-white/[0.1] px-4 py-2 flex items-center justify-between">
+        <div className="rounded-t-xl bg-[#1c1c1f]/95 backdrop-blur-xl border border-white/[0.1] px-4 py-2 flex items-center justify-between gap-6">
           <div className="flex items-center gap-4 text-[11px] text-white/50 font-medium">
             <svg className="h-3.5 w-3.5 text-white/50" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" /></svg>
             <span>Finder</span>
             <span>File</span>
             <span>Edit</span>
           </div>
-          <div className="flex items-center gap-3 text-[11px] text-white/50">
+          <div className="flex items-center gap-3 text-[11px] text-white/50 flex-shrink-0">
             <div className="flex items-center gap-1.5 rounded-md bg-teal-500/15 px-2 py-0.5 border border-teal-500/25">
               <img src="/icon-192.png" alt="" className="h-2.5 w-2.5 rounded-sm" />
               <span className="font-semibold text-teal-300 font-mono text-[10px]">7🔥</span>
@@ -203,11 +207,11 @@ function MenuBarMockup() {
 
 /* Friction Steps */
 const frictionSteps = [
-  { skip: 1, label: 'Free pass', desc: 'One-tap dismiss', emoji: '✓', gradient: 'from-green-500/25 to-green-500/5', border: 'border-green-500/30', text: 'text-green-400' },
-  { skip: 2, label: 'Quick check', desc: '"Why are you skipping?"', emoji: '?', gradient: 'from-yellow-500/25 to-yellow-500/5', border: 'border-yellow-500/30', text: 'text-yellow-400' },
-  { skip: 3, label: 'Type it out', desc: '"I choose to sit"', emoji: '⌨', gradient: 'from-orange-500/25 to-orange-500/5', border: 'border-orange-500/30', text: 'text-orange-400' },
-  { skip: 4, label: 'Wait 60s', desc: 'Stare at countdown', emoji: '⏱', gradient: 'from-red-500/25 to-red-500/5', border: 'border-red-500/30', text: 'text-red-400' },
-  { skip: 5, label: 'Locked out', desc: 'Cannot skip', emoji: '🔒', gradient: 'from-red-800/30 to-red-800/5', border: 'border-red-800/35', text: 'text-red-500' },
+  { skip: 1, label: 'Free pass', desc: 'One-tap dismiss', icon: Check, gradient: 'from-green-500/25 to-green-500/5', border: 'border-green-500/30', text: 'text-green-400' },
+  { skip: 2, label: 'Quick check', desc: '"Why are you skipping?"', icon: CircleHelp, gradient: 'from-yellow-500/25 to-yellow-500/5', border: 'border-yellow-500/30', text: 'text-yellow-400' },
+  { skip: 3, label: 'Type it out', desc: '"I choose to sit"', icon: Keyboard, gradient: 'from-orange-500/25 to-orange-500/5', border: 'border-orange-500/30', text: 'text-orange-400' },
+  { skip: 4, label: 'Wait 60s', desc: 'Stare at countdown', icon: Clock, gradient: 'from-red-500/25 to-red-500/5', border: 'border-red-500/30', text: 'text-red-400' },
+  { skip: 5, label: 'Locked out', desc: 'Cannot skip', icon: Lock, gradient: 'from-red-800/30 to-red-800/5', border: 'border-red-800/35', text: 'text-red-500' },
 ]
 
 function FrictionStep({ step, index }: { step: typeof frictionSteps[0]; index: number }) {
@@ -223,7 +227,7 @@ function FrictionStep({ step, index }: { step: typeof frictionSteps[0]; index: n
       className="flex-1 relative friction-connector"
     >
       <div className={`h-full rounded-2xl border ${step.border} bg-gradient-to-b ${step.gradient} p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-lg`}>
-        <div className="text-3xl mb-3">{step.emoji}</div>
+        <step.icon className={`w-8 h-8 mx-auto mb-3 ${step.text}`} strokeWidth={1.5} />
         <div className={`text-[10px] font-mono font-bold ${step.text} mb-1.5 uppercase tracking-widest`}>Skip #{step.skip}</div>
         <div className="text-[15px] font-semibold text-text-primary mb-1">{step.label}</div>
         <div className="text-[12px] text-text-muted leading-snug">{step.desc}</div>
