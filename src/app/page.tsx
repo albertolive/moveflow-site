@@ -708,9 +708,12 @@ export default function Home() {
 
           <div className="grid grid-cols-2 gap-4">
             <AnimatedStat value="90" suffix="%" label="Average skip rate on break reminders" delay={0} hero />
-            <AnimatedStat value="10" suffix="h" label="Daily sitting (devs)" delay={0.1} />
-            <AnimatedStat value="40" suffix="%" label="Mortality risk increase" delay={0.2} />
+            <AnimatedStat value="27" suffix="%" label="Higher mortality risk at 8–11h daily sitting" delay={0.1} />
+            <AnimatedStat value="48" suffix="%" label="Higher mortality risk at 11h+ daily sitting" delay={0.2} />
           </div>
+          <p className="mt-4 text-center text-xs text-text-muted">
+            Research suggests — observational data on sedentary time and all-cause mortality.
+          </p>
         </div>
       </Section>
 
