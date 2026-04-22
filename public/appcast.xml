@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
   <channel>
     <title>MoveFlow</title>
-    <link>https://moveflow.app/appcast.xml</link>
+    <link>https://moveflow-site.vercel.app/appcast.xml</link>
     <description>MoveFlow update feed</description>
     <language>en</language>
     <item>
@@ -22,7 +22,7 @@
         </ul>
       ]]></description>
       <enclosure
-        url="https://moveflow.app/MoveFlow-v1.1-macOS.zip"
+        url="https://moveflow-site.vercel.app/MoveFlow-v1.1-macOS.zip"
         type="application/octet-stream"
         sparkle:edSignature="uHr6SSXaW3V1MGIrqMvOMnI+R/pvYX1J+65764H+zTr3q1Jb7dJ9Je2EW2fJGuY5SkgK88c4gjkiydYkGuM2Cg=="
         length="4450185"
@@ -45,7 +45,7 @@
         </ul>
       ]]></description>
       <enclosure
-        url="https://moveflow.app/MoveFlow-v1.0-macOS.zip"
+        url="https://moveflow-site.vercel.app/MoveFlow-v1.0-macOS.zip"
         type="application/octet-stream"
         sparkle:edSignature="SAuHvNl1TD+iUn7L/TG8BeqUjPO3cVLohuCw5/oJkLQYuyq7WeH/t+53PXpT9a2zkoNGPIczBjvaNr8Nq1NpBA=="
         length="733105"
