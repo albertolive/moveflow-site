@@ -6,6 +6,29 @@
     <description>MoveFlow update feed</description>
     <language>en</language>
     <item>
+      <title>Version 1.1</title>
+      <pubDate>Tue, 22 Apr 2026 12:00:00 +0000</pubDate>
+      <sparkle:version>2</sparkle:version>
+      <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+        <h2>MoveFlow 1.1</h2>
+        <ul>
+          <li>Nudge overlay now shows Start button and countdown</li>
+          <li>Snooze and skip controls available from first overlay</li>
+          <li>Fix: overlay auto-dismisses after long absence</li>
+          <li>Fix: timer credits time after recent break completion</li>
+          <li>Fix: celebration and snooze task cleanup</li>
+        </ul>
+      ]]></description>
+      <enclosure
+        url="https://moveflow.app/MoveFlow-v1.1-macOS.zip"
+        type="application/octet-stream"
+        sparkle:edSignature="uHr6SSXaW3V1MGIrqMvOMnI+R/pvYX1J+65764H+zTr3q1Jb7dJ9Je2EW2fJGuY5SkgK88c4gjkiydYkGuM2Cg=="
+        length="4450185"
+      />
+    </item>
+    <item>
       <title>Version 1.0</title>
       <pubDate>Wed, 09 Apr 2026 12:00:00 +0000</pubDate>
       <sparkle:version>1</sparkle:version>
