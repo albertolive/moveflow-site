@@ -538,7 +538,7 @@ export default function Home() {
 
           <div className="flex items-center gap-3">
             <a
-              href="https://github.com/albertolive/MoveFlow/releases"
+              href="/MoveFlow-latest-macOS.zip"
               className="hidden sm:flex items-center gap-2 rounded-lg bg-accent px-4 py-1.5 text-[13px] font-semibold text-surface transition-all hover:brightness-110 shadow-lg shadow-amber-500/25"
             >
               <Download className="h-3.5 w-3.5" />
@@ -578,7 +578,7 @@ export default function Home() {
                   </a>
                 ))}
                 <a
-                  href="https://github.com/albertolive/MoveFlow/releases"
+                  href="/MoveFlow-latest-macOS.zip"
                   onClick={() => setMobileMenuOpen(false)}
                   className="mt-2 flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2.5 text-[14px] font-semibold text-surface"
                 >
@@ -640,7 +640,7 @@ export default function Home() {
             {/* CTA */}
             <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
               <a
-                href="https://github.com/albertolive/MoveFlow/releases"
+                href="/MoveFlow-latest-macOS.zip"
                 className="glow-amber group flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-8 py-4 font-display text-[15px] font-semibold text-white transition-all hover:brightness-110 hover:scale-[1.02]"
               >
                 <Download className="h-4 w-4" />
@@ -876,7 +876,7 @@ export default function Home() {
 
           <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
-              href="https://github.com/albertolive/MoveFlow/releases"
+              href="/MoveFlow-latest-macOS.zip"
               className="glow-amber group flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 px-8 py-4 font-display text-[16px] font-semibold text-white transition-all hover:brightness-110 hover:scale-[1.02]"
             >
               <Download className="h-5 w-5" />
