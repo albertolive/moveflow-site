@@ -916,12 +916,6 @@ export default function Home() {
                 <a href="#mechanisms" className="text-text-muted transition-colors hover:text-text-secondary">Mechanisms</a>
                 <a href="#privacy" className="text-text-muted transition-colors hover:text-text-secondary">Privacy</a>
               </div>
-              <div className="flex flex-col gap-2.5">
-                <span className="font-semibold text-text-secondary uppercase tracking-wider text-[10px]">Resources</span>
-                <a href="https://github.com/albertolive/MoveFlow" className="text-text-muted transition-colors hover:text-text-secondary">GitHub</a>
-                <a href="https://github.com/albertolive/MoveFlow/releases" className="text-text-muted transition-colors hover:text-text-secondary">Releases</a>
-                <a href="https://github.com/albertolive/MoveFlow/issues" className="text-text-muted transition-colors hover:text-text-secondary">Issues</a>
-              </div>
             </div>
           </div>
 
