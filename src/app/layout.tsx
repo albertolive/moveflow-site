@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import localFont from 'next/font/local'
 import { JetBrains_Mono } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const clashDisplay = localFont({
@@ -74,6 +75,7 @@ export default function RootLayout({
     <html lang="en" className={`grain ${clashDisplay.variable} ${satoshi.variable} ${jetbrainsMono.variable}`}>
       <body className="mesh-gradient dot-grid bg-surface text-text-primary">
         {children}
+        <Analytics />
       </body>
     </html>
   )
