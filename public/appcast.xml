@@ -6,6 +6,23 @@
     <description>MoveFlow update feed</description>
     <language>en</language>
     <item>
+      <title>Version 1.5</title>
+      <pubDate>Tue, 12 May 2026 11:36:19 +0000</pubDate>
+      <sparkle:version>6</sparkle:version>
+      <sparkle:shortVersionString>1.5</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+        <h2>MoveFlow 1.5</h2>
+        <p>See release notes at https://moveflow-site.vercel.app</p>
+      ]]></description>
+      <enclosure
+        url="https://moveflow-site.vercel.app/MoveFlow-v1.5-macOS.zip"
+        type="application/octet-stream"
+        sparkle:edSignature="RHYJT/XBwZH5NWlKGOh7A+Xn/wVjfylruSvC25zi5fdWmaTs3Gzh9Nu6E/niBgulgkrFGOwTaKRJH+I/H3GBCQ=="
+        length="6550660"
+      />
+    </item>
+    <item>
       <title>Version 1.4</title>
       <pubDate>Mon, 04 May 2026 12:33:41 +0000</pubDate>
       <sparkle:version>5</sparkle:version>
